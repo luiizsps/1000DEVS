@@ -38,6 +38,6 @@ public class CalcTrip {
         // fuel price (cost per km * consuption per km * distance)
         finalFuelPrice = fuelPrice * fuelConsumption * distance;
 
-        System.out.print("Time traveled: "+timeTrip+"\nCost: "+finalFuelPrice);
+        System.out.print("Time traveled: "+timeTrip+"\nCost: R$"+finalFuelPrice+"\n");
     }
 }
