@@ -11,20 +11,11 @@ public class CalcTrip {
         System.out.print("Avg speed (km/h): ");
         avgSpeed = r.nextInt();
 
-        // clear buffer
-        r.nextLine();
-
         System.out.print("Distance (km): ");
         distance = r.nextInt();
 
-        // clear buffer
-        r.nextLine();
-
         System.out.print("Fuel price: ");
         fuelPrice = r.nextDouble();
-
-        // clear buffer
-        r.nextLine();
 
         System.out.print("Liters consumed per km: ");
         fuelConsumption = r.nextDouble();
