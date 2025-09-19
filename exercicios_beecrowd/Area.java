@@ -1,4 +1,4 @@
-package exercicios_1;
+package exercicios_beecrowd;
 
 import java.util.Scanner;
 import java.lang.Math;
