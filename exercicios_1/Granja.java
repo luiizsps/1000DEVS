@@ -1,6 +1,7 @@
 package exercicios_1;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 /* Exercício 05: A granja Frangotech possui um controle automatizado 
 de cada frango da sua produção. No pé direito do frango há um anel 
@@ -20,15 +21,19 @@ public class Granja {
 
         Scanner r = new Scanner(System.in);
 
-        System.out.print("Informe a quantidade de galinhas: ");
-        qtdGalinhas = r.nextInt();
-        
+        try {
+            System.out.print("Informe a quantidade de galinhas: ");
+            qtdGalinhas = r.nextInt();
+            
+
+            custoPorGalinha = precoAnelAlimento*2 + precoAnelChip;
+
+            custoTotal = custoPorGalinha*qtdGalinhas;
+
+            System.out.printf("Preço total: %.2f\n", custoTotal);
+        } catch (InputMismatchException ime) {
+            System.out.println("Número inválido.");
+        }
         r.close();
-
-        custoPorGalinha = precoAnelAlimento*2 + precoAnelChip;
-
-        custoTotal = custoPorGalinha*qtdGalinhas;
-
-        System.out.printf("Preço total: %.2f\n", custoTotal);
     }
 }
