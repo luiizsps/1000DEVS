@@ -11,7 +11,7 @@ public class Forca {
     private int errors = 0;
     private int numLettersFound = 0;
     private int chosenWordLength;
-    private String chosenWord;
+    private String chosenWord = "";
     private ArrayList<Character> typedLetters = new ArrayList<Character>();
     private ArrayList<Character> correctLetters = new ArrayList<Character>();
     private ArrayList<String> initialDrawList = new ArrayList<String>();
@@ -28,6 +28,10 @@ public class Forca {
         char letter;
 
         setWord();
+
+        if(this.chosenWord == "") return;
+
+        setInitialGameStructure();
         drawLetterSpaces();
 
         System.out.println("\n\nOlá! Seja bem-vindo ao jogo da forca com linguagens de programação.\n");
@@ -76,17 +80,17 @@ public class Forca {
         }
     }
 
-    // draw initial game structure
+    // set game structure
     private void setGameStructure() {
         switch(this.errors) {
             case 0:
-                this.initialDrawList.add("|----- \n");
-                this.initialDrawList.add("|    | \n");
-                this.initialDrawList.add("|      \n");
-                this.initialDrawList.add("|      \n");
-                this.initialDrawList.add("|      \n");
-                this.initialDrawList.add("|      \n");
-                this.initialDrawList.add("_      \n");
+                this.initialDrawList.set(0,"|----- \n");
+                this.initialDrawList.set(1,"|    | \n");
+                this.initialDrawList.set(2,"|      \n");
+                this.initialDrawList.set(3,"|      \n");
+                this.initialDrawList.set(4,"|      \n");
+                this.initialDrawList.set(5,"|      \n");
+                this.initialDrawList.set(6,"_      \n");
                 break;
             case 1:
                 this.initialDrawList.set(2, "|    O \n");
@@ -101,6 +105,17 @@ public class Forca {
                 this.initialDrawList.set(5, "|   / \\\\ \n");
                 break;
         }
+    }
+
+    // set initial game structure
+    private void setInitialGameStructure() {
+        this.initialDrawList.add("|----- \n");
+        this.initialDrawList.add("|    | \n");
+        this.initialDrawList.add("|      \n");
+        this.initialDrawList.add("|      \n");
+        this.initialDrawList.add("|      \n");
+        this.initialDrawList.add("|      \n");
+        this.initialDrawList.add("_      \n");
     }
 
     private void drawLetterSpaces() {
@@ -119,13 +134,16 @@ public class Forca {
             System.out.print("\nDigite uma letra: ");
             userInput = reader.nextLine();
             userInput = userInput.toUpperCase();
-            letter = userInput.charAt(0);
+
+            if(userInput.length() == 1) {
+                letter = userInput.charAt(0);
+            }
 
             //reader.close();
         } catch(InputMismatchException e) {
             System.out.println("Erro. Entrada inválida.");
-        }
-        
+        } 
+
         if(this.typedLetters.contains(letter)) {
             System.out.println("Essa letra já foi inserida.");
             letter = '/';
@@ -171,7 +189,7 @@ public class Forca {
 
             reader.close();
         } catch (IOException e) {
-            System.out.printf("Erro: %s", e.getMessage());
+            System.out.printf("Erro: %s\n", e.getMessage());
         }
 
         return availableWords;
@@ -186,6 +204,11 @@ public class Forca {
         Random rand = new Random();
 
         words = getAvailableWords();
+
+        if (words.size() == 0) {
+            return;
+        }
+
         chosenIndex = rand.nextInt(words.size());
         selectedWord = words.get(chosenIndex);
 
