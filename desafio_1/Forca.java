@@ -70,7 +70,7 @@ public class Forca {
             processAnswer(letter);
 
             // clear console
-            clearConsole();
+            if(getGameStatus()) clearConsole();
         }
 
         if (this.errors > 4) {
