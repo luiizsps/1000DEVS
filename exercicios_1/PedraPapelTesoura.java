@@ -38,7 +38,7 @@ public class PedraPapelTesoura {
 
         reader.close();
 
-        // sorteia esoclha do computador
+        // sorteia escolha do computador
         escolhaComputador = random.nextInt(opcoes.length);
 
 
