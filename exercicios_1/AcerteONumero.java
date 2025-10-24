@@ -43,6 +43,14 @@ public class AcerteONumero {
             } else {
                 System.out.printf("Parabéns! O número escolhido foi: %d\n", escolhaComputador);
                 reader.close();
+
+                if(i==numTentativas){
+                    System.out.println("Você fez 5 pontos.");
+                }else if(i==numTentativas-1){
+                    System.out.println("Você fez 4 pontos.");
+                } else {
+                    System.out.println("Você fez 2 pontos");
+                }
                 return;
             }
         }
