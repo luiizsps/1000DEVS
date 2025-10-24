@@ -12,6 +12,7 @@ public class AcerteONumero {
         Random random = new Random();
         Scanner reader = new Scanner(System.in);
 
+        // sorteia numero
         escolhaComputador = random.nextInt(numMax+1);
 
         for(int i = numTentativas; i>0; i--) {
