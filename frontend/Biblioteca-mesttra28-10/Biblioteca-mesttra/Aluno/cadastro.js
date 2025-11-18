@@ -1,3 +1,19 @@
+function cadastrarAluno(event) {
+    // removo o comportamento do submit de atualizar a tela;
+    event.preventDefault();
+
+    // Busco o que foi digitado no input nome atraves do seu ID e do atributo value;
+    const nome = document.getElementById('nome').value;
+    const cpf = document.getElementById('cpf').value;
+    const dataCadastro = document.getElementById('datacadastro').value;
+    const endereco = document.getElementById('endereco').value;
+    const email = document.getElementById('email').value;
+    const tel = document.getElementById('tel').value;
+
+
+    console.log([nome, cpf, dataCadastro, endereco, email, tel])
+}
+
 
 async function listarAlunos() {
     // promisse 1 (requisicao foi ok ou nao)
@@ -38,21 +54,3 @@ async function listarAlunos() {
 document.addEventListener('DOMContentLoaded', function() {
     listarAlunos();
 });
-
-// Maria
-
-
-// function maiorIdade(idade) {
-//     if (idade >= 18) {
-//         console.log('é maior de idade')
-//     } else {
-//         console.log('é menor de idade')
-//     }
-// }
-
-
-// maiorIdade(20) // é maior de idade
-// maiorIdade(16) // é menor de idade
-// maiorIdade(50)
-
-
