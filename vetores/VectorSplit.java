@@ -59,7 +59,6 @@ public class VectorSplit {
         System.out.printf("Quantidade de números positivos: %d\n", i);
         System.out.printf("Quantidade de números negativos: %d\n", j);
         
-
         System.out.printf("Porcentagem de números positivos: %.2f%%\nPorcentagem de números negativos: %.2f%%\n", percentagePos, percentageNeg);
     }
 }
