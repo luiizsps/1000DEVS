@@ -3,15 +3,28 @@ package time_format;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
+import time_format.KeyboardReader;
 
+@SuppressWarnings("unused")
 public class Age {
 	public static void main(String[] args) {
 		LocalDate currentDate = LocalDate.now();
 		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		String birthDateString = "10/12/2002";
+		String birthDateString = "";
+		LocalDate birthDate = null;
 		LocalDate nextBirthday = null;
 
-		LocalDate birthDate = LocalDate.parse(birthDateString, dateFormatter);
+		try {
+			System.out.print("Informe sua data de nascimento: ");
+			birthDateString = KeyboardReader.readLine();
+			birthDate = LocalDate.parse(birthDateString, dateFormatter);
+
+		} catch (DateTimeParseException e) {
+			System.out.println("Erro ao converter data: " + e.getMessage());
+		}
+
 		Period period = Period.between(birthDate, currentDate);
 		
 		System.out.printf("O usuário tem %d anos %d meses e %d dias.\n", period.getYears(), period.getMonths(), period.getDays());
@@ -23,6 +36,8 @@ public class Age {
 		} else {
 			nextBirthday = birthdayCurrentYear;
 		}
-		System.out.printf("O seu próximo aniversário é "+ nextBirthday.format(dateFormatter)+"\n");
+
+		long daysToNextBirthday = ChronoUnit.DAYS.between(currentDate, nextBirthday);
+		System.out.printf("O seu próximo aniversário é "+ nextBirthday.format(dateFormatter)+". Faltam %d dias.\n", daysToNextBirthday);
 	}
 }
