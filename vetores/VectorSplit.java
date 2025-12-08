@@ -14,10 +14,10 @@ public class VectorSplit {
         
         do {
             try {
-                System.out.print("Informe um número inteiro positivo ou negativo: ");
+                System.out.print("Input a positive or negative integer: ");
                 typedNumber = KeyboardReader.readInt();
                 if (typedNumber == 0) {
-                    System.out.println("O valor informado não é válido.");
+                    System.out.println("Invalid input.");
                     continue;
                 }
 
@@ -27,12 +27,12 @@ public class VectorSplit {
                 i++;
 
             } catch(InputMismatchException e) {
-                System.out.println("O valor informado não é válido.");
+                System.out.println("Invalid input.");
                 KeyboardReader.readLine();
             }
         } while (keepLoop);
 
-        System.out.println("Números Negativos: ");
+        System.out.println("Negative numbers:");
 
         for (int number : vectorInt) {
             if (number < 0) {
@@ -42,7 +42,7 @@ public class VectorSplit {
             }
         }
 
-        System.out.println("Números Positivos: ");
+        System.out.println("Positive numbers:");
 
         i = 0;
         for (int number : vectorInt) {
@@ -56,9 +56,9 @@ public class VectorSplit {
         float percentagePos = ((float) i/vectorInt.length) * 100;
         float percentageNeg = ((float) j/vectorInt.length) * 100;
 
-        System.out.printf("Quantidade de números positivos: %d\n", i);
-        System.out.printf("Quantidade de números negativos: %d\n", j);
+        System.out.printf("Positive numbers count: %d\n", i);
+        System.out.printf("Negative numbers count: %d\n", j);
         
-        System.out.printf("Porcentagem de números positivos: %.2f%%\nPorcentagem de números negativos: %.2f%%\n", percentagePos, percentageNeg);
+        System.out.printf("Percentage of positive numbers: %.2f%%\nPercentage of negative numbers: %.2f%%\n", percentagePos, percentageNeg);
     }
 }
