@@ -32,15 +32,34 @@ public class VectorSplit {
             }
         } while (keepLoop);
 
-        i = 0;
+        System.out.println("Números Negativos: ");
+
         for (int number : vectorInt) {
             if (number < 0) {
                 vectorIntNegative[j] = number;
+                System.out.println(number);
                 j++;
-            } else {
+            }
+        }
+
+        System.out.println("Números Positivos: ");
+
+        i = 0;
+        for (int number : vectorInt) {
+            if (number > 0) {
+                System.out.println(number);
                 vectorIntPositive[i] = number;
                 i++;
             }
         }
+
+        float percentagePos = ((float) i/vectorInt.length) * 100;
+        float percentageNeg = ((float) j/vectorInt.length) * 100;
+
+        System.out.printf("Quantidade de números positivos: %d\n", i);
+        System.out.printf("Quantidade de números negativos: %d\n", j);
+        
+
+        System.out.printf("Porcentagem de números positivos: %.2f%%\nPorcentagem de números negativos: %.2f%%\n", percentagePos, percentageNeg);
     }
 }
