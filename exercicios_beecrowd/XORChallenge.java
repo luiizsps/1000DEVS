@@ -6,7 +6,7 @@ public class XORChallenge {
         while (reader.hasNextLong()) {
             long a = reader.nextLong();
             long b = reader.nextLong();
-            System.out.println(a ^ b); // exact, no floating point involved
+            System.out.println(a ^ b);
         }
         reader.close();
     }
